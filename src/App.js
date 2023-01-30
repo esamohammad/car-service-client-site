@@ -12,3 +12,5 @@ function App() {
 }
 
 export default App;
+
+//width: max-w-screen-xl mx-auto
