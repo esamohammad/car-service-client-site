@@ -1,4 +1,5 @@
 import Main from "../../Layout/Main";
+import Checkout from "../../Pages/Checkout/checkout";
 import Home from "../../Pages/Home/Home/Home";
 import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login";
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
         path: '/services',
         element: <Services></Services>
       },
-
+      {
+        path: '/checkout/:id',
+        element: <Checkout></Checkout>,
+        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+      }
     ]
   }
 ]);
