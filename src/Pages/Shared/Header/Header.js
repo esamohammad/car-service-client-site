@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.svg';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-
+   const { user } = useContext(AuthContext);
    const menuItems = <>
       <li className='font-semibold'><Link to='/'>Home</Link></li>
-      <li className='font-semibold'><Link to='/login'>Login</Link></li>
-      <li className='font-semibold'><Link to='/signUp'>SignUp</Link></li>
+
+
+
+      {
+         user?.email ?
+            <>
+               <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+            </>
+            :
+            <li className='font-semibold'><Link to='/login'>Login</Link></li>
+      }
+
+
+      {/* <li className='font-semibold'><Link to='/signUp'>SignUp</Link></li> */}
       <li className='font-semibold'><Link to='/services'>Services</Link></li>
-      <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+      {/* <li className='font-semibold'><Link to='/orders'>Orders</Link></li> */}
    </>
 
    return (
@@ -24,7 +38,7 @@ const Header = () => {
                </ul>
             </div>
             <Link to="/" className="btn btn-ghost normal-case text-xl">
-               <img src={logo} width="70px"  alt="" />
+               <img src={logo} width="70px" alt="" />
             </Link>
          </div>
          <div className="navbar-center hidden lg:flex">
