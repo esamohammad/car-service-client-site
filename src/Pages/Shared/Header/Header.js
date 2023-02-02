@@ -23,7 +23,8 @@ const Header = () => {
                <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
 
                <li className='font-semibold'>
-                  <button onClick={handleLogOut} className='btn btn-outline btn-accent'><Link to='/orders'>Sign Out</Link></button></li>
+                  <button onClick={handleLogOut} className=''><Link to='/orders'>Sign Out</Link></button>
+               </li>
 
             </>
             :
@@ -31,9 +32,9 @@ const Header = () => {
       }
 
 
-      {/* <li className='font-semibold'><Link to='/signUp'>SignUp</Link></li> */}
-     
-      
+  
+
+
 
    </>
 
