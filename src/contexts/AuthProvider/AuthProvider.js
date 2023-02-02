@@ -15,16 +15,17 @@ const AuthProvider = ({ children }) => {
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
-        
+
     }
 
     const login = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-        
+
     }
-    const logOut = ()=>{
-        return signOut (auth);
+    const logOut = () => {
+        localStorage.removeItem('genius-token');
+        return signOut(auth);
     }
 
     useEffect(() => {

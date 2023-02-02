@@ -37,7 +37,9 @@ const Checkout = () => {
       fetch('http://localhost:5000/orders', {
          method: 'POST',
          headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('genius-token')}`
+
          },
          body: JSON.stringify(order)
       })
