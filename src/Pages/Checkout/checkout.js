@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Checkout = () => {
    const { _id, title, price } = useLoaderData();
    const { user } = useContext(AuthContext);
+   const navigate = useNavigate();
+   const location = useLocation();
+   const from = location.state?.from?.pathname || "/services";
 
    const handlePlaceOrder = event => {
       event.preventDefault();
@@ -46,6 +49,7 @@ const Checkout = () => {
                form.reset();
 
             }
+            navigate(from, { replace: true });
          })
          .catch(er => console.error(er));
 
