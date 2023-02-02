@@ -23,7 +23,7 @@ const Header = () => {
                <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
 
                <li className='font-semibold'>
-                  <button onClick={handleLogOut} className=''><Link to='/orders'>Sign Out</Link></button>
+                  <button onClick={handleLogOut} className=''><Link to='/'>Sign Out</Link></button>
                </li>
 
             </>
